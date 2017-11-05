@@ -3,7 +3,7 @@ import scipy as sp
 from numba import jit, float64
 
 ## Criterio de convergencia para update¿?
-# This functions were taken from https://github.com/cmackenziek/tsfl
+# twed Functions were taken from https://github.com/cmackenziek/tsfl
 
 @jit(float64[:, :](float64[:, :], float64[:], float64[:], float64[:],
     float64[:], float64, float64), nopython=True)
