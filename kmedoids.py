@@ -50,18 +50,16 @@ def twed_distance(n):
     return  twed(kmedoids[i], lightcurves[j])
 
 
-def clasiffier(dist_matrix, lightcurves):
+def clasiffier(dist_matrix):
     """
     Returns an array with the index of the cluster of each lightcurve
     using the distance matrix.
     dist_matrix : Distance matrix, (cluster, lc).
-    lightcurves : Array with the lightcurves (time, magnitude).
     """
     n_clusters = len(dist_matrix) # Number of clusters
-    n_lc = len(lightcurves)  # Number of lightcurves
+    n_lc = len(dist_matrix[0])  # Number of lightcurves
     cluster_index = sp.zeros(n_lc)
-    for i in range(n_lc)
-        lc = lightcurves[i]
+    for i in range(n_lc):
         index = np.argmin(dist_matrix[:,i])
         cluster_index[i] = index
     return cluster_index
@@ -104,7 +102,7 @@ def k_medoids_clustering(lightcurves, medoid_center, index=-1):
         for j in range(n_lc):
             dist_matrix = TWED(lightcurve[j,1], lightcurve[j,0],
                                medoids[i,1], medoids[i,0])
-    lc_indexes = classifiers(dist_matrix, lightcurves) # lightcurves Clusters
+    lc_indexes = classifiers(dist_matrix) # lightcurves Clusters
     if index>=0 and index<n_clusters:
         lc_index = lightcurves[classifiers==index]
         return lc_index, medoids[index], dist_matrix
