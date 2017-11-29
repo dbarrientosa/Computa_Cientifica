@@ -4,7 +4,7 @@ import numpy as np
 class TimeSeries:
     """ Init signature: TimeSeries(self, time, magnitude)
         Type:           type 
-        Objeto serie de tiempo, debe ser inicializado con dos arrays del mismo tamaño. Guarda la curva de luz estandarizada,
+        Objeto serie de tiempo, debe ser inicializado con dos numpy arrays del mismo tamaño. Guarda la curva de luz estandarizada,
         magnitud promedio 0 y desviación estándar 1.    
     """
     
